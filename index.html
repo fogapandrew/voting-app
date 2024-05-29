@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote for Your Favorite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="candidate" id="candidate1">
+            <div class="vote-count" id="votes1">0</div>
+            <img src="person1.jpg" alt="Person 1">
+            <button onclick="vote(1)">Vote for Njie Elvis</button>
+        </div>
+        <div class="candidate" id="candidate2">
+            <div class="vote-count" id="votes2">0</div>
+            <img src="person2.jpg" alt="Person 2">
+            <button onclick="vote(2)">Vote for Fuh Elvis</button>
+        </div>
+    </div>
+    <div class="reset-container">
+        <button onclick="resetVote()" style="background-color: red;">Change Your Vote here!</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
