@@ -9,6 +9,11 @@ document.getElementById('votes2').textContent = votes2;
 document.getElementById('totalVoters').textContent = totalVoters;
 
 function vote(candidate) {
+    if (totalVoters >= 10) {
+        alert('Voting has ended. The total votes have reached the limit.');
+        return;
+    }
+
     if (localStorage.getItem('hasVoted')) {
         alert('You have already voted! Reset your vote to change it.');
         return;
@@ -30,6 +35,10 @@ function vote(candidate) {
 
     localStorage.setItem('hasVoted', candidate);  // Store the candidate number instead of just 'true'
     alert('Thank you for voting!');
+
+    if (totalVoters >= 10) {
+        alert(`Voting has ended. Final results:\nPerson 1: ${votes1} votes\nPerson 2: ${votes2} votes`);
+    }
 }
 
 function resetVote() {
