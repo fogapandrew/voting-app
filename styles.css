@@ -55,3 +55,8 @@ button:hover {
 .reset-container {
     margin-top: 20px;
 }
+
+.total-voters {
+    margin-top: 20px;
+    font-size: 1.5em;
+}

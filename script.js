@@ -1,10 +1,12 @@
-// Initialize vote counts
+// Initialize vote counts and voter count
 let votes1 = localStorage.getItem('votes1') ? parseInt(localStorage.getItem('votes1')) : 0;
 let votes2 = localStorage.getItem('votes2') ? parseInt(localStorage.getItem('votes2')) : 0;
+let totalVoters = localStorage.getItem('totalVoters') ? parseInt(localStorage.getItem('totalVoters')) : 0;
 
-// Update the UI with initial vote counts
+// Update the UI with initial vote counts and total voters
 document.getElementById('votes1').textContent = votes1;
 document.getElementById('votes2').textContent = votes2;
+document.getElementById('totalVoters').textContent = totalVoters;
 
 function vote(candidate) {
     if (localStorage.getItem('hasVoted')) {
@@ -21,6 +23,10 @@ function vote(candidate) {
         localStorage.setItem('votes2', votes2);
         document.getElementById('votes2').textContent = votes2;
     }
+
+    totalVoters++;
+    localStorage.setItem('totalVoters', totalVoters);
+    document.getElementById('totalVoters').textContent = totalVoters;
 
     localStorage.setItem('hasVoted', candidate);  // Store the candidate number instead of just 'true'
     alert('Thank you for voting!');
@@ -43,6 +49,10 @@ function resetVote() {
         localStorage.setItem('votes2', votes2);
         document.getElementById('votes2').textContent = votes2;
     }
+
+    totalVoters--;
+    localStorage.setItem('totalVoters', totalVoters);
+    document.getElementById('totalVoters').textContent = totalVoters;
 
     localStorage.removeItem('hasVoted');
     alert('Your vote has been reset. You can vote again.');
